@@ -37,4 +37,5 @@ variable2=int(input("Introduce un segundo valor: "))
 print(f"El resultado es {variable+variable2}.")
 
 
+#prueba de commit
 
