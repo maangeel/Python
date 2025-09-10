@@ -38,4 +38,6 @@ print(f"El resultado es {variable+variable2}.")
 
 
 #prueba de commit
+#prueba de commit2
+
 
