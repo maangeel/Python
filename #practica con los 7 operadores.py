@@ -53,6 +53,7 @@ elif (operador=="potencia"):
     resultado = valor1%valor2
     print(f"{valor1} elevado a {valor2} da: {resultado}")
 
+#mensaje de error en caso de no coincidir con ningun operador
 else:
     print("No has escrito correctamente el operador.")
     print("Asegúrate de escribirlo sin acentos ni mayúsculas.")
