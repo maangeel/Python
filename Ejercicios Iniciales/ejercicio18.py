@@ -9,6 +9,8 @@ adults = int(input("Introduce el número de adultos que hay: "))
 
 minorsPrice = 12*0.5*minors
 adultsPrice = 12*0.9*adults
+minorsPrice = round(minorsPrice,1)
+adultsPrice = round(adultsPrice,1)
 
 print(f"El precio total del cine para {minors} menor/es es: {minorsPrice}")
 print(f"El precio total del cine para {adults} adulto/s es: {adultsPrice}")
