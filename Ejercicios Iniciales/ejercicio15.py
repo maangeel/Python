@@ -10,10 +10,12 @@ h = float(input("Introduce el valor de la altura: "))
 
 #cálculos
 aBase = math.pi * r**2
+aLateral = 2 * math.pi * r * h
+aTotal = 2 * aBase + aLateral
 v = aBase * h
 
-aBase = round(aBase,2)
+aTotal = round(aTotal,2)
 v = round(v,2)
 
-print(f"El área del cilindro es: {aBase}")
+print(f"El área del cilindro es: {aTotal}")
 print(f"El volumen del cilindro es: {v}")
