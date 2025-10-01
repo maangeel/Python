@@ -6,7 +6,7 @@
 #inputs
 nota = float(input("Introduce tu nota: "))
 
-if nota >= 9:
+if nota >= 8.5:
     if nota <= 10:
         print(f"Tu nota es un {nota}, has sacado un excelente.")
 elif nota >= 6.5:
