@@ -14,7 +14,7 @@ if ec1 < 0:
     print("La raíz no puede ser un valor negativo.")
 
 else:
-    raiz = ec1**0,5
+    raiz = math.sqrt(ec1)
     x1 = (-b+raiz)/(2*a)
     x2 = (-b-raiz)/(2*a)
     print(f"El valor de x1 es de: {x1}")
