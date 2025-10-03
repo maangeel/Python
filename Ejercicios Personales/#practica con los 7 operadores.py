@@ -78,4 +78,3 @@ while continuar == "s":
     continuar = input("Para continuar pulsa s, para finalizar pulsa n:")
 
 print("Cerrando programa...")
-
