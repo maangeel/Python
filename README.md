@@ -12,7 +12,9 @@ https://sway.cloud.microsoft/UtjrDGOKlUP26VkR?ref=Link&loc=play
 Enunciado Entrada de datos Salida. Debe respetarse el mismo formato del ejemplo
 
 Programa que muestre por pantalla la frase “hello world” hello world
-Programa que introduzca por teclado tres tipos de variables y se muestren por pantalla en el siguiente orden: número entero, texto y número decimal. 1 a 6.8 El valor introducido es un 1 El valor introducido es la letra a El valor introducido es el número decimal 6.8 3.4 B 5.4 Error
+Programa que introduzca por teclado tres tipos de variables y se muestren por pantalla en el siguiente orden: número entero, texto y número decimal. 1 a 6.8 El valor introducido es un 
+
+1 El valor introducido es la letra a El valor introducido es el número decimal 6.8 3.4 B 5.4 Error
 Programa que pida dos números enteros y realice la suma correspondiente 3 4 El resultado es 7 6 6 El resultado es 12
 A partir del código anterior, realiza una versión para números con decimales 3.5 3 6.5 3.2 3.1 6.3
 Programa que pida cinco palabras y muestre una frase con las cinco. Modifica el código para que entre palabra y palabra haya una coma. Lunes Martes Miércoles Jueves Viernes LunesMartesMiércolesJuevesViernes Lunes,Martes,Miércoles,Jueves,Viernes
