@@ -27,8 +27,24 @@ if password.len >= 6 and password.len <= 8:
             correct += correct
             if password[2].isupper: #tercera pos
                  correct += correct
-                 if password[3] in "*" or password[3] in "*" or password[3] in "*" #cuarta pos
-
+                 if password[3] in "*" or password[3] in "*" or password[3] in "*": #cuarta pos
+                    correct += correct
+                    if password[4].islower:
+                        correct += correct
+                        if int(password[5]) >= 6 and int(password[5]) <= 9:
+                            correct += correct
+                            if password[6] in "&" or password[6] in "/" or password[3] in "#":
+                                correct += correct
+                                if int(password[7]) <= 5:
+                                    correct += correct
+                                else:
+                                    print(f"ERROR, hay un carácter no válido en la posición {correct}.")
+                            else:
+                                print(f"ERROR, hay un carácter no válido en la posición {correct}.")
+                        else:
+                            print(f"ERROR, hay un carácter no válido en la posición {correct}.")
+                    else:
+                        print(f"ERROR, hay un carácter no válido en la posición {correct}.")
                  else:
                     print(f"ERROR, hay un carácter no válido en la posición {correct}.")
             else:
