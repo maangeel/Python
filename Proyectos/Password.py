@@ -17,43 +17,70 @@ print("      Posición 8 Un número menor o igual a 5")
 #entrada de la contraseña
 password = input("Introuce el password: ")
 
+totalError = 0
+error1 = False #inicialización variables 
+error2 = False #inicialización variables
+error3 = False #inicialización variables
+error4 = False #inicialización variables
+error5 = False #inicialización variables
+error6 = False #inicialización variables
+error7 = False #inicialización variables
+error8 = False #inicialización variables
+
 correct = 1 #variable para comprobar que la contraseña es correcta
 #condiciones para garantizar que la contraseña sea correcta
 
-if password.len >= 6 and password.len <= 8:
+if len(password) >= 6 and len(password) <= 8:
     if int(password[0]) >= 1 and int(password[0]) <= 5: #verifica primera pos
         correct += correct
-        if password[1].islower: #segunda pos
-            correct += correct
-            if password[2].isupper: #tercera pos
-                 correct += correct
-                 if password[3] in "*" or password[3] in "*" or password[3] in "*": #cuarta pos
-                    correct += correct
-                    if password[4].islower:
-                        correct += correct
-                        if int(password[5]) >= 6 and int(password[5]) <= 9:
-                            correct += correct
-                            if password[6] in "&" or password[6] in "/" or password[3] in "#":
-                                correct += correct
-                                if int(password[7]) <= 5:
-                                    correct += correct
-                                else:
-                                    print(f"ERROR, hay un carácter no válido en la posición {correct}.")
-                            else:
-                                print(f"ERROR, hay un carácter no válido en la posición {correct}.")
-                        else:
-                            print(f"ERROR, hay un carácter no válido en la posición {correct}.")
-                    else:
-                        print(f"ERROR, hay un carácter no válido en la posición {correct}.")
-                 else:
-                    print(f"ERROR, hay un carácter no válido en la posición {correct}.")
-            else:
-                print(f"ERROR, hay un carácter no válido en la posición {correct}.") 
-        else:
-            print(f"ERROR, hay un carácter no válido en la posición {correct}.")
     else:
-        print(f"ERROR, hay un carácter no válido en la posición {correct}.")
+        error1 = True
+
+
+    if password[1].islower: #segunda pos
+        correct += correct
+    else:
+        error2 = True
+
+
+    if password[2].isupper: #tercera pos
+        correct += correct
+    else:
+        error3 =True
+
+
+    if password[3] in "*" or password[3] in "*" or password[3] in "*": #cuarta pos
+        correct += correct
+    else:
+        error4 = True
+
+
+    if password[4].islower:
+        correct += correct
+    else:
+        error5 = True
+
+
+    if int(password[5]) >= 6 and int(password[5]) <= 9:
+        correct += correct
+    else:
+        error6 = True
+
+
+    if password[6] in "&" or password[6] in "/" or password[3] in "#":
+        correct += correct
+    else:
+        error7 = True
+        
+
+    if int(password[7]) <= 5:
+        correct += correct
+    else:
+        error8 = True
+
+
 else:
-        print("ERROR")
-        print("La longitud del password no es el indicado.")
-        print("Cerrando programa...")
+    print(f"ERROR, el PASSWORD tiene una longitud de {len(password)} caracteres y no cumple los requisitos")
+
+#condiciones para comprobar el número de errores
+if 

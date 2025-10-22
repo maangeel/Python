@@ -20,7 +20,7 @@ password = input("Introuce el password: ")
 correct = 1 #variable para comprobar que la contraseña es correcta
 #condiciones para garantizar que la contraseña sea correcta
 while correct > 0:
-    if password.len >= 6 and password.len <= 8:
+    if len(password) >= 6 and len(password) <= 8:
         if int(password[0]) >= 1 and int(password[0]) <= 5:
             correct += correct
         else:
@@ -33,8 +33,12 @@ while correct > 0:
             print(f"ERROR, hay un carácter no válido en la posición {correct}.")
             correct = 0
             break
-        
-
+        if password[2].isupper:
+            correct += correct
+        else:
+            print(f"ERROR, hay un carácter no válido en la posición {correct}.")
+            correct = 0
+            break
     else:
         print("ERROR")
         print("La longitud del password no es el indicado.")
