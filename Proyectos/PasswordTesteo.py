@@ -47,7 +47,7 @@ for password in entrada:
             errores.append("Error en el caracter 6")
             isError = True
 
-        if len(password) == 7:
+        if len(password) >= 7:
             if not password[6] in "&#/":
                 errores.append("Error en el caracter 7")
                 isError = True
