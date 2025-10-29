@@ -21,42 +21,33 @@ entrada = ["2Aa*a","2Aa*a8#8a","9aA*a8#3","41A*a8#3","4ba*a8#3","4bA%a8#3","4bA*
 
 for password in entrada:
     errores = []
-    isError = False
     if len(password) >= 6 and len(password) <= 8:
         if not (password[0].isdigit() and int(password[0]) >= 1 and int(password[0]) <= 5): #verifica primera pos
             errores.append("Error en el caracter 1")
-            isError = True
 
         if not password[1].islower(): #segunda pos
             errores.append("Error en el caracter 2")
-            isError = True
 
         if not password[2].isupper(): #tercera pos
             errores.append("Error en el caracter 3")
-            isError = True
 
         if not password[3] in "*_@": #cuarta pos
             errores.append("Error en el caracter 4")
-            isError = True
 
         if not (password[4].islower()):
             errores.append("Error en el caracter 5")
-            isError = True
 
         if not (password[5].isdigit() and int(password[5]) >= 6 and int(password[5]) <= 9):
             errores.append("Error en el caracter 6")
-            isError = True
 
         if len(password) >= 7:
             if not password[6] in "&#/":
                 errores.append("Error en el caracter 7")
-                isError = True
         if len(password) == 8:    
             if not password[7].isdigit() or not int(password[7]) <= 5:
                 errores.append("Error en el caracter 8")
-                isError = True
         
-        if isError:
+        if len(errores) > 0:
             print(errores)
         else:
             print("El formato del PASSWORD es correcto")
