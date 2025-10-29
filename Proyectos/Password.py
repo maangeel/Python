@@ -19,7 +19,6 @@ password = input("Introuce el password: ")
 
 if len(password) >= 6 and len(password) <= 8:
     errores = []
-
     if not (password[0].isdigit() and int(password[0]) >= 1 and int(password[0]) <= 5): #verifica primera pos
         errores.append("Error en el caracter 1")
 
