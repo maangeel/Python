@@ -7,9 +7,9 @@ for i in "banana":
 for i in range(10): #tmb sirve para hacer repeticiones
     print("Repito")
 n=0
-while n < 10:
+while n < 10: #bucle con una condición
     print("klk")
     n += 1
 
-#while (True): #bucle infinito
+#while True: #bucle infinito
 #    print("Hola")
