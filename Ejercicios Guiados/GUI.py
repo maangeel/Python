@@ -7,4 +7,8 @@ myLabel = Label(root, text = "Hello World!")
 #empujar a la pantalla
 myLabel.pack()
 
+
+
+
+
 root.mainloop()
