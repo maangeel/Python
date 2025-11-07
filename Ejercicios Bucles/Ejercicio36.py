@@ -4,6 +4,6 @@ total = 0
 num = int(input("Introduce el valor n: "))
 
 for i in range(num+1):
-    total = total + i #suma todos los valores naturales desde 0 hasta el valor n
+    total += i #suma todos los valores naturales desde 0 hasta el valor n
 
-print(total)
+print(f"La suma total de números naturales es: {total}")
