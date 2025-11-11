@@ -15,5 +15,5 @@ for i in word:
         consonantes += i
 
 
-print(f"Las consonantes de la palabra {word.lower()} son: {consonantes.lower()}.")
+print(f"Las consonantes de la palabra {word.lower()} son: {consonantes.lower()}.") #convierte a minúsculas para evitar errores
 print(f"Las vocales de la palabra {word.lower()} son: {vocales.lower()}.")
