@@ -1,6 +1,6 @@
 #44. Realiza un programa que recorra todos los números comprendidos de 0 a 100 realizando saltos 
 #de 3 en 3. El resultado debe aparecer por pantalla en una línea con los números separados por ‘,’
 
-for i in range(0,100,3):
+for i in range(0,100,3): #recorre 0 a 100 de 3 en 3
     print(i,end="") #imprime i y manda que se siga el print en la misma línea
     print(", ",end="") #separación por comas
