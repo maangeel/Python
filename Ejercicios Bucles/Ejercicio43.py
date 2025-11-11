@@ -3,5 +3,5 @@
 
 word = input("Introduce una palabra: ")
 
-for i in word: #recorre la variable word y almacena cada valor en i
-    print(i) #imprime i
+for i in range(len(word)):
+    print(f"En la posición {i} está la {word[i]}")
