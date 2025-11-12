@@ -8,9 +8,15 @@ b = int(input("Introduce el segundo valor del intervalo: "))
 
 if a < b:
     for i in range(a, b + 1): #en ascendente
-        print(i, end="-")
+        if i!=b: #se encarga de comprobar el último valor para evitar que aparezca un guión al final
+            print(i, end="-") 
+        else:
+            print(i) #el último valor aparece sin guión final
 elif a > b:
     for j in range(a, b - 1, -1): #en descendiente
-        print(j, end="-")
+        if j!=b: #se encarga de comprobar el último valor para evitar que aparezca un guión al final
+            print(j, end="-")
+        else:
+            print(j)
 else:
     print(a) #si a y b son iguales
