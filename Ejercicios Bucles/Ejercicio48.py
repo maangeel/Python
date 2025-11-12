@@ -5,9 +5,9 @@
 #input palabra secreta
 secret = input("Introduce la palabra secreta: ")
 
-for i in range(len(secret)):
+for i in range(len(secret)): #repite tantas veces como longitud de la palabra
     letra=input("Introduce una letra: ")
-    if letra in secret:
+    if letra in secret: #si la letra aparece en la palabra
         print("La letra existe.")
     else:
         print("La letra no existe: ")
