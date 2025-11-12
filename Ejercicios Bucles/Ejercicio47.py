@@ -6,5 +6,11 @@
 a = int(input("Introduce el primer valor del intervalo: "))
 b = int(input("Introduce el segundo valor del intervalo: "))
 
-for i in range(a,b+1):
-    print(f"{i}-",end="")
+if a < b:
+    for i in range(a, b + 1): #en ascendente
+        print(i, end="-")
+elif a > b:
+    for j in range(a, b - 1, -1): #en descendiente
+        print(j, end="-")
+else:
+    print(a) #si a y b son iguales
