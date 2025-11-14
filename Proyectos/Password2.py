@@ -13,6 +13,9 @@ simbol = 0
 password=[input("Introduce password 1: "),input("Introduce password 2: "),input("Introduce password 3: ")]
 
 for i in password: #asigna a i cada password
+    letras = 0 #reseteo variables
+    num = 0
+    simbol = 0
     if len(i) == 8:
         for j in range(8):
             if password[j].isalpha():
@@ -23,3 +26,5 @@ for i in password: #asigna a i cada password
                 simbol += 1
     else:
         print("Longitud incorrecta")
+    if letras == 3 and num == 3 and simbol == 2:
+        
