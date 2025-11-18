@@ -83,7 +83,7 @@ hay mal que dure cien años.
 34. Corrige los 4 errores o añade el código que necesites para que el siguiente programa se 
 ejecute correctamente.
 
-EJERCICIOS CON BUCLES FOR Y WHILE
+EJERCICIOS CON BUCLES FOR
 35. Programa que al introducir un número por teclado permita mostrar ese número de veces tu 
 nombre
 36. Programa que sume los n primeros números naturales. n Lo introduce el usuario.
