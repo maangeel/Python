@@ -24,6 +24,7 @@ numPedidos = 0 #almacena número de pedidos
 
 #inputs
 while otroPedido == "s":
+    numPedidos+=1
     principal = int(input("Introduce el número de tu plato principal: "))
     acompa = int(input("Introduce el número de tu acompañamiento: "))
     bebida = int(input("Introduce el número de tu bebida: "))
@@ -45,4 +46,25 @@ while otroPedido == "s":
         total+=1.5
     if bebida == 3:
         total+=1
+    otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
+    while not otroPedido == "s" or not otroPedido == "n":
+        otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
 
+totalIva = total*1.1
+if totalIva > 30:
+    totalDisc=total*0.85
+    print(f"Número de pedidos: {numPedidos}.")
+    print(f"Total a pagar: {total}.")
+    print(f"Total + IVA: {totalIva}.")
+    print(f"Total con descuento del 15%: {totalDisc}.")
+elif totalIva <= 30 and totalIva >= 20:
+    totalDisc=total*0.95
+    print(f"Número de pedidos: {numPedidos}.")
+    print(f"Total a pagar: {total}.")
+    print(f"Total + IVA: {totalIva}.")
+    print(f"Total con descuento del 5%: {totalDisc}.")
+else:
+    totalDisc=total
+    print(f"Número de pedidos: {numPedidos}.")
+    print(f"Total a pagar: {total}.")
+    print(f"Total + IVA: {totalIva}.")
