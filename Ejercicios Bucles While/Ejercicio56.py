@@ -47,24 +47,24 @@ while otroPedido == "s":
     if bebida == 3:
         total+=1
     otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
-    while not otroPedido == "s" or not otroPedido == "n":
+    while not otroPedido == "s" and not otroPedido == "n":
         otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
 
 totalIva = total*1.1
 if totalIva > 30:
     totalDisc=total*0.85
-    print(f"Número de pedidos: {numPedidos}.")
-    print(f"Total a pagar: {total}.")
-    print(f"Total + IVA: {totalIva}.")
-    print(f"Total con descuento del 15%: {totalDisc}.")
+    print(f"Número de pedidos: {numPedidos}")
+    print(f"Total a pagar: {round(total,2)}€")
+    print(f"Total + IVA: {round(totalIva,2)}€")
+    print(f"Total con descuento del 15%: {round(totalDisc,2)}€")
 elif totalIva <= 30 and totalIva >= 20:
     totalDisc=total*0.95
-    print(f"Número de pedidos: {numPedidos}.")
-    print(f"Total a pagar: {total}.")
-    print(f"Total + IVA: {totalIva}.")
-    print(f"Total con descuento del 5%: {totalDisc}.")
+    print(f"Número de pedidos: {numPedidos}")
+    print(f"Total a pagar: {round(total,2)}€")
+    print(f"Total + IVA: {round(totalIva,2)}€")
+    print(f"Total con descuento del 5%: {round(totalDisc,2)}€")
 else:
     totalDisc=total
-    print(f"Número de pedidos: {numPedidos}.")
-    print(f"Total a pagar: {total}.")
-    print(f"Total + IVA: {totalIva}.")
+    print(f"Número de pedidos: {numPedidos}")
+    print(f"Total a pagar: {round(total,2)}€")
+    print(f"Total + IVA: {round(totalIva,2)}€")
