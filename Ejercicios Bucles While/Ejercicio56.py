@@ -6,8 +6,8 @@ print("2. Bocadillo de chistorria - 4.5€")
 print("3. Bikini de jamón - 2.5€")
 print("ACOMPAÑAMIENTO")
 print("1. Patatas finas - 1.5€")
-print("2. Patatas gruesas - 1.7€")
-print("3. Patatas rústicas -2€")
+print("2. Patatas gruesas - 1.75€")
+print("3. Patatas rústicas - 2€")
 print("BEBIDAS")
 print("1. Coca cola - 2€")
 print("2. Acuarius - 1.5€")
@@ -37,7 +37,7 @@ while otroPedido == "s":
     if acompa == 1:
         total+=1.5
     if acompa == 2:
-        total+=1.7
+        total+=1.75
     if acompa == 3:
         total+=2
     if bebida == 1:
@@ -52,19 +52,19 @@ while otroPedido == "s":
 
 totalIva = total*1.1
 if totalIva > 30:
-    totalDisc=total*0.85
+    totalDisc=totalIva*0.85
     print(f"Número de pedidos: {numPedidos}")
     print(f"Total a pagar: {round(total,2)}€")
     print(f"Total + IVA: {round(totalIva,2)}€")
     print(f"Total con descuento del 15%: {round(totalDisc,2)}€")
 elif totalIva <= 30 and totalIva >= 20:
-    totalDisc=total*0.95
+    totalDisc=totalIva*0.95
     print(f"Número de pedidos: {numPedidos}")
     print(f"Total a pagar: {round(total,2)}€")
     print(f"Total + IVA: {round(totalIva,2)}€")
     print(f"Total con descuento del 5%: {round(totalDisc,2)}€")
 else:
-    totalDisc=total
+    totalDisc=totalIva
     print(f"Número de pedidos: {numPedidos}")
     print(f"Total a pagar: {round(total,2)}€")
     print(f"Total + IVA: {round(totalIva,2)}€")
