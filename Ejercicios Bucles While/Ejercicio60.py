@@ -2,7 +2,7 @@
 #Utiliza únicamente el while
 
 valor = int(input("Introduce el valor que quieres multiplicar: "))
-tabla = 1
-while tabla<11:
-    print(valor*tabla)
+tabla = 0
+while tabla<10:#bucle con incremento
     tabla+=1
+    print(valor*tabla)
