@@ -31,7 +31,7 @@ while val != -99:
     if val<menor:
         menor=val
     val = int(input("Introduce un valor: "))
-if val>mayor:
+if val>mayor: #comprobación tras salir del bucle
     mayor=val
 if val<menor:
     menor=val
