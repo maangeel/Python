@@ -1,17 +1,20 @@
-#63. Realiza un programa que permita tirar 100 veces un dado y nos presente por pantalla el número
-#de veces que se repite cada número.
+#66. Repite el ejercicio 63. En lugar de ‘tirar’ 100 veces un dado, modifica el programa para ver cómo 
+#se comporta el dado en lanzamientos producidos durante aprox 3 segundos. 
 
+import time #libreriía de tiempo
 import random
-repetidor = 0
-randomNum = 0
+
 uno = 0
 dos = 0
 tres = 0
 cuatro = 0
 cinco = 0
 seis = 0
+randomNum = 0
 
-while repetidor != 100:
+tiempo = time.time() #comienza a contar tiempo
+
+while tiempo<3: #hasta 3 segundos
     randomNum = random.randint(1,6) #tira dado
     if randomNum == 1:
         uno+=1
@@ -25,7 +28,6 @@ while repetidor != 100:
         cinco+=1
     if randomNum == 6:
         seis+=1
-    repetidor+=1 #variable que controla el bucle
 
 print("RESUMEN")
 print("Uno:",uno) #prints
