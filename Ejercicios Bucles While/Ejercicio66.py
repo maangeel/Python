@@ -1,7 +1,7 @@
 #66. Repite el ejercicio 63. En lugar de ‘tirar’ 100 veces un dado, modifica el programa para ver cómo 
 #se comporta el dado en lanzamientos producidos durante aprox 3 segundos. 
 
-import time #libreriía de tiempo
+import time #librería de tiempo
 import random
 
 uno = 0
@@ -12,9 +12,9 @@ cinco = 0
 seis = 0
 randomNum = 0
 
-tiempo = time.time() #comienza a contar tiempo
+tiempo = time.time() #recoge el tiempo
 
-while tiempo<3: #hasta 3 segundos
+while (time.time()-tiempo)<3: #tiempo actual menos anterior
     randomNum = random.randint(1,6) #tira dado
     if randomNum == 1:
         uno+=1
@@ -30,6 +30,7 @@ while tiempo<3: #hasta 3 segundos
         seis+=1
 
 print("RESUMEN")
+print("Tiempo:",time.time()-tiempo)
 print("Uno:",uno) #prints
 print("Dos:",dos)
 print("Tres:",tres)

@@ -27,7 +27,6 @@ while repetidor != 100:
         seis+=1
     repetidor+=1 #variable que controla el bucle
 
-print("RESUMEN")
 print("Uno:",uno) #prints
 print("Dos:",dos)
 print("Tres:",tres)
