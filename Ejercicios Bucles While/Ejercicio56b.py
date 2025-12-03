@@ -46,6 +46,8 @@ while otroPedido == "s":
                     numPlato = int(input("Introduce el número de tu plato principal: "))
                     total+=principal[numPlato-1]
                     break
+                total+=principal[numPlato-1]
+                break
             except ValueError: #en caso de haber error salta error
                 print("ERROR")
             
@@ -57,14 +59,16 @@ while otroPedido == "s":
     if acompaSN in "sS":
         #número de plato
         while True:
-            try:
+            try: #intenta ejecutar el código
                 numPlato = int(input("Introduce el número de tu acompañamiento: "))
                 while not numPlato<=3 or not numPlato>=1:
                     print("ERROR")
                     numPlato = int(input("Introduce el número de tu acompañamiento: "))
                     total+=acompa[numPlato-1]
                     break
-            except ValueError:
+                total+=acompa[numPlato-1]
+                break
+            except ValueError: #en caso de haber error salta error
                 print("ERROR")
 
     #bebida
@@ -75,14 +79,16 @@ while otroPedido == "s":
     if bebidaSN in "sS":
         #número de plato
         while True:
-            try:
+            try: #intenta ejecutar el código
                 numPlato = int(input("Introduce el número de tu bebida: "))
                 while not numPlato<=3 or not numPlato>=1:
                     print("ERROR")
                     numPlato = int(input("Introduce el número de tu bebida: "))
                     total+=bebida[numPlato-1]
                     break
-            except ValueError:
+                total+=bebida[numPlato-1]
+                break
+            except ValueError: #en caso de haber error salta error
                 print("ERROR")
 
     #otro pedido
