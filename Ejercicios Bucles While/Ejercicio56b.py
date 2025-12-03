@@ -21,7 +21,7 @@ totalDisc = 0 #descuento del 5% si es 20-30€ y 15% si es > 30€
 #precios
 principal = [9,4.5,2.5]
 acompa = [1.5,1.75,2]
-bebida = [2,2.5,1]
+bebida = [2,1.5,1]
 
 numPlato = 0
 otroPedido = "s" #s/n
