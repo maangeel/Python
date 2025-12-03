@@ -17,40 +17,48 @@ print("3. Agua - 1€")
 total = 0 #suma de precios
 totalIva = 0 #añadiendo IVA 10%
 totalDisc = 0 #descuento del 5% si es 20-30€ y 15% si es > 30€
-principal = 0
-acompa = 0
-bebida = 0
+
+#precios
+principal = [9,4.5,2.5]
+acompa = [1.5,1.75,2]
+bebida = [2,2.5,1]
+
+numPlato = 0
 otroPedido = "s" #s/n
 numPedidos = 0 #almacena número de pedidos
 
 #inputs
 while otroPedido == "s":
     numPedidos+=1
+    
+    #plato principal
     principalSN = input("¿Quieres pedir un plato principal? s/n: ")
+    while not principalSN in "sSnN":
+        principalSN = input("¿Quieres pedir un plato principal? s/n: ")
     if principalSN in "sS":
-        principal = int(input("Introduce el número de tu plato principal: "))
-    acompa = int(input("Introduce el número de tu acompañamiento: "))
-    bebida = int(input("Introduce el número de tu bebida: "))
-    if principal == 1:
-        total+=9
-    if principal == 2:
-        total+=4.5
-    if principal == 3:
-        total+=2.5
-    if acompa == 1:
-        total+=1.5
-    if acompa == 2:
-        total+=1.75
-    if acompa == 3:
-        total+=2
-    if bebida == 1:
-        total+=2
-    if bebida == 2:
-        total+=1.5
-    if bebida == 3:
-        total+=1
+        numPlato = int(input("Introduce el número de tu plato principal: "))
+        total+=principal[numPlato-1]
+    
+    #acompañamiento
+    acompaSN = input("¿Quieres pedir un acompañamiento? s/n: ")
+    while not acompaSN in "sSnN":
+        acompaSN = input("¿Quieres pedir un acompañamiento? s/n: ")
+    if acompaSN in "sS":
+        numPlato = int(input("Introduce el número de tu acompañamiento: "))
+        total+=acompa[numPlato-1]
+
+    #bebida
+    bebidaSN = input("¿Quieres pedir una bebida? s/n: ")
+    while not bebidaSN in "sSnN":
+        bebidaSN = input("¿Quieres pedir una bebida? s/n: ")
+    if bebidaSN in "sS":
+        numPlato = int(input("Introduce el número de tu bebida: "))
+        total+=bebida[numPlato-1]
+
+    #otro pedido
     otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
-    while not otroPedido == "s" and not otroPedido == "n":
+    while not otroPedido in "sSnN":
+        print("ERROR")
         otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
 
 totalIva = total*1.1
