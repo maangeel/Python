@@ -28,7 +28,7 @@ otroPedido = "s" #s/n
 numPedidos = 0 #almacena número de pedidos
 
 #inputs
-while otroPedido == "s":
+while otroPedido.lower() == "s":
     numPedidos+=1
     
     #plato principal
