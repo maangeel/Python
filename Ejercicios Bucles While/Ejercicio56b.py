@@ -39,14 +39,14 @@ while otroPedido == "s":
     if principalSN in "sS":
         #número de plato
         while True:
-            try:
+            try: #intenta ejecutar el código
                 numPlato = int(input("Introduce el número de tu plato principal: "))
                 while not numPlato<=3 or not numPlato>=1:
                     print("ERROR")
                     numPlato = int(input("Introduce el número de tu plato principal: "))
                     total+=principal[numPlato-1]
                     break
-            except ValueError:
+            except ValueError: #en caso de haber error salta error
                 print("ERROR")
             
     #acompañamiento
