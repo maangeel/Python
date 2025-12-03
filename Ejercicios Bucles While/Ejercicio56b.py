@@ -93,7 +93,7 @@ while otroPedido == "s":
 
     #otro pedido
     otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
-    while not otroPedido in "sSnN":
+    while not otroPedido.lower() == "s" and not otroPedido.lower() == "n":
         print("ERROR")
         otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
 
