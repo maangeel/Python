@@ -141,3 +141,5 @@ mostrarse por pantalla un mensaje y el número de intentos.
 Utiliza únicamente el while
 61. A partir del código anterior, haz que el programa finalice si el valor de la tabla de multiplicar es
 superior o igual a 40.
+62. Realiza un programa que pida dos números por teclado y presente por pantalla qué números 
+hay pares e impares en ese rango. Utiliza for. Contempla si primer valor es superior al segundo.
