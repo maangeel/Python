@@ -133,3 +133,11 @@ por los índices y otras modificaciones.
 57. Realiza un programa que permita adivinar un número comprendido entre 1 y 5. El programa 
 debe controlar si el usuario introduce un número no comprendido entre 1 y 5.
 58. Modifica el programa anterior para que tengas 3 intentos. Utiliza while
+59. Diseña un programa que “piense” un numero aleatorio entre 0 y 1000 para que nos pida que 
+intentemos adivinarlo. En cada intento, el programa nos dirá si el numero introducido es mayor o 
+menor del correcto. No utilices break para salir del bucle. Cuando se acierte el número debe 
+mostrarse por pantalla un mensaje y el número de intentos.
+60. Diseña un programa que al introducir un número, realice su tabla de multiplicar del 1 al 10. 
+Utiliza únicamente el while
+61. A partir del código anterior, haz que el programa finalice si el valor de la tabla de multiplicar es
+superior o igual a 40.
