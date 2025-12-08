@@ -112,3 +112,24 @@ esa palabra para que sea ese el criterio que establezca el rango del bucle de ma
 tenga x oportunidades para ver si letra introducida está en esa palabra.
 49. A partir del programa anterior, modifica el código para que al introducir la letra por teclado te 
 indique en qué posición de la palabra se encuentra la letra.
+
+EJERCICIOS CON BUCLES WHILE
+50. Realiza un programa que de los buenos días 3 veces. Con While
+51. A partir del programa anterior, modifica el código para que sea el usuario quién introduzca el 
+número de veces que desea que repita la frase Buenos días. Con While
+52. Realiza un programa que sume dos números enteros por teclado y presente el resultado por 
+pantalla. El programa preguntará si deseas o no repetir la operación. Con While
+53. A partir del código anterior, haz que aparezca al finalizar el programa por pantalla el total las 
+sumas y el número de repeticiones. Con While
+54. Modifica el programa anterior y haz que se repita el ciclo automáticamente hasta que el total 
+de todas las sumas sea superior a 50, será entonces cuando el programa finalice. No hará falta 
+preguntar si deseas repetir la operación. En cada operación aparece por pantalla la suma de la 
+operación y su acumulado. Para aquellos de vosotros que os fijáis en los detalles, controlar que el 
+mensaje del acumulado es singular o plural... Con While
+55. A partir del programa anterior haz que sea todo exactamente igual pero teniendo en cuenta que el programa se repita siempre y cuando la suma acumulada sea superior a 50 o la suma acumulada sea par. Con While
+56. Realiza un programa que gestione un establecimiento de venta de bocadillos...
+56. Realiza un programa que gestione un establecimiento de venta de bocadillos... con listas que se mueva
+por los índices y otras modificaciones.
+57. Realiza un programa que permita adivinar un número comprendido entre 1 y 5. El programa 
+debe controlar si el usuario introduce un número no comprendido entre 1 y 5.
+58. Modifica el programa anterior para que tengas 3 intentos. Utiliza while
