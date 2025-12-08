@@ -1,5 +1,5 @@
-#56. Realiza un programa que gestione un establecimiento de venta de bocadillos... con listas que se mueva
-#por los índices.
+#56b. Realiza un programa que gestione un establecimiento de venta de bocadillos... con listas que se mueva
+#por los índices y otras modificaciones.
 
 print("MENÚ")
 print("1. Bocadillo de calamares - 9€")
