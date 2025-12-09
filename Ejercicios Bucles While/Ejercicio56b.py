@@ -1,5 +1,5 @@
-#56. Realiza un programa que gestione un establecimiento de venta de bocadillos... con listas que se mueva
-#por los índices.
+#56b. Realiza un programa que gestione un establecimiento de venta de bocadillos... con listas que se mueva
+#por los índices y otras modificaciones.
 
 print("MENÚ")
 print("1. Bocadillo de calamares - 9€")
@@ -28,12 +28,12 @@ otroPedido = "s" #s/n
 numPedidos = 0 #almacena número de pedidos
 
 #inputs
-while otroPedido == "s":
+while otroPedido.lower() == "s":
     numPedidos+=1
     
     #plato principal
     principalSN = input("¿Quieres pedir un plato principal? s/n: ")
-    while not principalSN in "sSnN":
+    while not principalSN.lower() == "s" and not principalSN.lower() == "n":
         print("ERROR")
         principalSN = input("¿Quieres pedir un plato principal? s/n: ")
     if principalSN in "sS":
@@ -53,7 +53,7 @@ while otroPedido == "s":
             
     #acompañamiento
     acompaSN = input("¿Quieres pedir un acompañamiento? s/n: ")
-    while not acompaSN in "sSnN":
+    while not acompaSN.lower() == "s" and not acompaSN.lower() == "n":
         print("ERROR")
         acompaSN = input("¿Quieres pedir un acompañamiento? s/n: ")
     if acompaSN in "sS":
@@ -73,7 +73,7 @@ while otroPedido == "s":
 
     #bebida
     bebidaSN = input("¿Quieres pedir una bebida? s/n: ")
-    while not bebidaSN in "sSnN":
+    while not bebidaSN.lower()=="s" and not bebidaSN.lower()=="n":
         print("ERROR")
         bebidaSN = input("¿Quieres pedir una bebida? s/n: ")
     if bebidaSN in "sS":
@@ -93,7 +93,7 @@ while otroPedido == "s":
 
     #otro pedido
     otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
-    while not otroPedido in "sSnN":
+    while not otroPedido.lower() == "s" and not otroPedido.lower() == "n":
         print("ERROR")
         otroPedido = input("¿Quieres realizar otro pedido? s/n: ")
 

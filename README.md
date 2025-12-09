@@ -9,7 +9,7 @@ Yo soy Miguel Ángel Fernández, alumno de PAI5C y hago la optativa de programac
 sway:
 https://sway.cloud.microsoft/UtjrDGOKlUP26VkR?ref=Link&loc=play 
 
-EJERCICIOS INICIALES
+# EJERCICIOS INICIALES
 1. Programa que muestre por pantalla la frase “hello world”
 2. Programa que introduzca por teclado tres tipos de variables y se muestren por pantalla
 en el siguiente orden: número entero, texto y número decimal.
@@ -49,7 +49,7 @@ importantes descuentos. A los adultos se les aplicará un 10% de descuento y a l
 de 18 años un 50%. Si la entrada cuesta 12 euros, calcula el total a pagar introduciendo por 
 teclado el número de menores y el número de adultos que asisten al cine.
 
-EJERCICIOS CONDICIONALES
+# EJERCICIOS CONDICIONALES
 19. Programa que introduzca dos números y devuelva cuál de los dos es mayor, menor o son 
 iguales.
 20. A partir del ejercicio anterior, forzar que el usuario solo pueda introducir por teclados 
@@ -83,7 +83,7 @@ hay mal que dure cien años.
 34. Corrige los 4 errores o añade el código que necesites para que el siguiente programa se 
 ejecute correctamente.
 
-EJERCICIOS CON BUCLES FOR
+# EJERCICIOS CON BUCLES FOR
 35. Programa que al introducir un número por teclado permita mostrar ese número de veces tu 
 nombre
 36. Programa que sume los n primeros números naturales. n Lo introduce el usuario.
@@ -112,3 +112,41 @@ esa palabra para que sea ese el criterio que establezca el rango del bucle de ma
 tenga x oportunidades para ver si letra introducida está en esa palabra.
 49. A partir del programa anterior, modifica el código para que al introducir la letra por teclado te 
 indique en qué posición de la palabra se encuentra la letra.
+
+# EJERCICIOS CON BUCLES WHILE
+50. Realiza un programa que de los buenos días 3 veces. Con While
+51. A partir del programa anterior, modifica el código para que sea el usuario quién introduzca el 
+número de veces que desea que repita la frase Buenos días. Con While
+52. Realiza un programa que sume dos números enteros por teclado y presente el resultado por 
+pantalla. El programa preguntará si deseas o no repetir la operación. Con While
+53. A partir del código anterior, haz que aparezca al finalizar el programa por pantalla el total las 
+sumas y el número de repeticiones. Con While
+54. Modifica el programa anterior y haz que se repita el ciclo automáticamente hasta que el total 
+de todas las sumas sea superior a 50, será entonces cuando el programa finalice. No hará falta 
+preguntar si deseas repetir la operación. En cada operación aparece por pantalla la suma de la 
+operación y su acumulado. Para aquellos de vosotros que os fijáis en los detalles, controlar que el 
+mensaje del acumulado es singular o plural... Con While
+55. A partir del programa anterior haz que sea todo exactamente igual pero teniendo en cuenta que el programa se repita siempre y cuando la suma acumulada sea superior a 50 o la suma acumulada sea par. Con While
+56. Realiza un programa que gestione un establecimiento de venta de bocadillos...
+56. Realiza un programa que gestione un establecimiento de venta de bocadillos... con listas que se mueva
+por los índices y otras modificaciones.
+57. Realiza un programa que permita adivinar un número comprendido entre 1 y 5. El programa 
+debe controlar si el usuario introduce un número no comprendido entre 1 y 5.
+58. Modifica el programa anterior para que tengas 3 intentos. Utiliza while
+59. Diseña un programa que “piense” un numero aleatorio entre 0 y 1000 para que nos pida que 
+intentemos adivinarlo. En cada intento, el programa nos dirá si el numero introducido es mayor o 
+menor del correcto. No utilices break para salir del bucle. Cuando se acierte el número debe 
+mostrarse por pantalla un mensaje y el número de intentos.
+60. Diseña un programa que al introducir un número, realice su tabla de multiplicar del 1 al 10. 
+Utiliza únicamente el while
+61. A partir del código anterior, haz que el programa finalice si el valor de la tabla de multiplicar es
+superior o igual a 40.
+62. Realiza un programa que pida dos números por teclado y presente por pantalla qué números 
+hay pares e impares en ese rango. Utiliza for. Contempla si primer valor es superior al segundo.
+63. Realiza un programa que permita tirar 100 veces un dado y nos presente por pantalla el número
+de veces que se repite cada número.
+64. Programa que pida continuamente números por teclado hasta que el usuario introduzca el valor -99.
+65. Programa que pida continuamente números por teclado hasta que el usuario introduzca el valor 
+-99. Por pantalla debe aparecer cuál de todos los números introducidos es el mayo y cuál el menor.
+66. Repite el ejercicio 63. En lugar de ‘tirar’ 100 veces un dado, modifica el programa para ver cómo 
+se comporta el dado en lanzamientos producidos durante aprox 3 segundos. 
