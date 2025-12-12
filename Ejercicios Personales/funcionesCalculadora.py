@@ -27,6 +27,7 @@ def continuarPrograma(mensage):
             if continuar.lower() == "s":
                 main()
             elif continuar.lower() == "n":
+                continueProgram=0
                 print("Finalizando")
                 break
         except ValueError:
@@ -57,10 +58,10 @@ def main():
         menu() #muestra menú
         opcion = input("Introduce una opción: ")
 
-        if opcion == 5: #opción salir
+        if opcion == "5": #opción salir
             continueProgram=0 #evita que el programa siga
             break
-        if opcion not in ("1","2","3","4"):
+        elif opcion not in ("1","2","3","4"):
             print("Opción no válida")
             continue #vuelve al bucle
         else:
@@ -91,4 +92,5 @@ def main():
             
 
 #inicio del programa
-continuarPrograma("¿Quieres iniciar el programa? s/n: ")
+if continueProgram==1: #sirve para iniciar
+    continuarPrograma("¿Quieres iniciar el programa? s/n: ")
