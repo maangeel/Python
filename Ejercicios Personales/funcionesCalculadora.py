@@ -1,6 +1,7 @@
 opcion = 0
 resultado = 0
 continuar = ""
+continueProgram = 1
 #función introducir un valor
 def introValor(inputMessage):
     while True:
@@ -57,11 +58,16 @@ def main():
         opcion = input("Introduce una opción: ")
 
         if opcion == 5: #opción salir
+            continueProgram=0 #evita que el programa siga
             break
         if opcion not in ("1","2","3","4"):
             print("Opción no válida")
             continue #vuelve al bucle
+        else:
+            continueProgram=1 #permite seguir el programa
+            break #pasa a las operaciones
 
+    if continueProgram==1:
         #inputs
         num1 = introValor("Introduce un valor: ")
         num2 = introValor("Introduce otro valor: ")
@@ -82,7 +88,7 @@ def main():
         except ValueError as e:
             print(f"Syntax Error, {e}")
         continuarPrograma("¿Quieres continuar el programa? s/n: ")
-        
+            
 
 #inicio del programa
 continuarPrograma("¿Quieres iniciar el programa? s/n: ")
