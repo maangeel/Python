@@ -55,6 +55,7 @@ def divi(a,b):
         return a/b
     except ZeroDivisionError:
         print("Syntax Error")
+        return None
     
 def main():
     while True:
@@ -95,5 +96,4 @@ def main():
             
 
 #inicio del programa
-if continueProgram==1: #sirve para iniciar
-    continuarPrograma("¿Quieres iniciar el programa? s/n: ")
+main()
