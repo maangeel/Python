@@ -3,26 +3,6 @@ resultado = 0
 continuar = ""
 continueProgram = 1
 
-#continuar programa
-def continuarPrograma(mensage):
-    while True:
-        try:
-            continuar = input(mensage)
-            if continuar.lower() == "s":
-                main()
-            elif continuar.lower() == "n":
-                continueProgram=0
-                print("Finalizando")
-                break
-            else:
-                print("Error")
-        except ValueError:
-            print("Error")
-            break
-
-#inicio del programa
-if continueProgram==1: #sirve para iniciar
-    continuarPrograma("¿Quieres iniciar el programa? s/n: ")
 #función introducir un valor
 def introValor(inputMessage):
     while True:
@@ -40,7 +20,22 @@ def menu():
     print("4. División")
     print("5. Salir")
 
-
+#continuar programa
+def continuarPrograma(mensage):
+    while True:
+        try:
+            continuar = input(mensage)
+            if continuar.lower() == "s":
+                main()
+            elif continuar.lower() == "n":
+                continueProgram = 0
+                print("Finalizando")
+                break
+            else:
+                print("Error")
+        except ValueError:
+            print("Error")
+            break
 
 #función suma
 def suma(a,b):
@@ -97,3 +92,8 @@ def main():
         except ValueError as e:
             print(f"Syntax Error, {e}")
         continuarPrograma("¿Quieres continuar el programa? s/n: ")
+            
+
+#inicio del programa
+if continueProgram==1: #sirve para iniciar
+    continuarPrograma("¿Quieres iniciar el programa? s/n: ")
