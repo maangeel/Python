@@ -30,6 +30,8 @@ def continuarPrograma(mensage):
                 continueProgram=0
                 print("Finalizando")
                 break
+            else:
+                print("Error")
         except ValueError:
             print("Error")
             break
