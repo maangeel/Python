@@ -19,17 +19,17 @@ for i in password: #asigna a i cada password
     letras = 0 #reseteo variables
     num = 0
     simbol = 0
-    if len(i) == 8:
+    if len(i) == 8: #comprueba la longitud
         for j in range(8):
-            if i[j].isalpha():
+            if i[j].isalpha(): #caracter string
                 letras += 1
-            elif i[j].isdigit():
+            elif i[j].isdigit(): #caracter numérico
                 num += 1
-            else:
+            else: #resto de carácteres
                 simbol += 1
-    else: #si no cumple requisito de longitud se ahorra comprobar las condiciones de arriba
+    else: #en caso de longitud incorrecta
         print("Longitud incorrecta")
-    if letras == 3 and num == 3 and simbol == 2: #comprueba que el Password sea correcto
+    if letras == 3 and num == 3 and simbol == 2: #comprueba requisitos
         correctPassword+=1
         print(f'El Password "{i}" cumple con los requisitos.')
     else:
