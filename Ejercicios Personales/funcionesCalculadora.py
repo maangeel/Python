@@ -2,22 +2,6 @@ opcion = 0
 resultado = 0
 continuar = ""
 continueProgram = 1
-#función introducir un valor
-def introValor(inputMessage):
-    while True:
-        try:
-            return float(input(inputMessage))
-        except ValueError:
-            print("El valor introducido es incorrecto")
-
-#función interfaz del menú
-def menu():
-    print("\n--- Calculadora ---")
-    print("1. Suma")
-    print("2. Resta")
-    print("3. Multiplicación")
-    print("4. División")
-    print("5. Salir")
 
 #continuar programa
 def continuarPrograma(mensage):
@@ -35,6 +19,28 @@ def continuarPrograma(mensage):
         except ValueError:
             print("Error")
             break
+
+#inicio del programa
+if continueProgram==1: #sirve para iniciar
+    continuarPrograma("¿Quieres iniciar el programa? s/n: ")
+#función introducir un valor
+def introValor(inputMessage):
+    while True:
+        try:
+            return float(input(inputMessage))
+        except ValueError:
+            print("El valor introducido es incorrecto")
+
+#función interfaz del menú
+def menu():
+    print("\n--- Calculadora ---")
+    print("1. Suma")
+    print("2. Resta")
+    print("3. Multiplicación")
+    print("4. División")
+    print("5. Salir")
+
+
 
 #función suma
 def suma(a,b):
@@ -91,8 +97,3 @@ def main():
         except ValueError as e:
             print(f"Syntax Error, {e}")
         continuarPrograma("¿Quieres continuar el programa? s/n: ")
-            
-
-#inicio del programa
-if continueProgram==1: #sirve para iniciar
-    continuarPrograma("¿Quieres iniciar el programa? s/n: ")
