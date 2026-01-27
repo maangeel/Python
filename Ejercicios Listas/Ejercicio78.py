@@ -3,11 +3,18 @@
 
 lista1 = ['a','b','D','x','r','X','3','h','w','2','i']
 
-valorEliminar = input("Introduce el valor que deseas eliminar: ")
-
 #variable bucle
 continuar = "s"
 
 while continuar in "Ss" and not continuar in "Nn":
-    if valorEliminar.isdigit():
+    valorEliminar = input("Introduce el valor que deseas eliminar: ")
+    if valorEliminar.isdigit(): #comprueba si es numérico
         if valorEliminar in lista1:
+            lista1.remove(valorEliminar) #elimina el valor de la lista
+            print(lista1)
+        else:
+            print("El valor introducido no está en la lista")
+    else:
+        print("Introduce valor numérico")
+    
+    continuar = input("Deseas introducir otro valor s/n: ")
