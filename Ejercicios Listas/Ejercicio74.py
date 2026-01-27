@@ -7,13 +7,13 @@ lista2 = ["casa","luz","tres","tren","sol","pan"]
 repetidas=[]
 noRepetidas=[]
 
-for i in lista2:
+for i in lista2: #comprueba repetidas en la lista 2
     if i in lista1:
         repetidas.append(i)
     else:
         noRepetidas.append(i)
 
-for j in lista1:
+for j in lista1: #comprueba repetidas en la lista1
     if j in lista2 and j not in repetidas:
         repetidas.append(j)
     elif j not in lista2 and j not in noRepetidas:

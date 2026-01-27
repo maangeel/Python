@@ -7,6 +7,7 @@ lista2 = ["casa","luz","tres","tren","sol","pan"]
 repetidas=[]
 noRepetidas=[]
 
+#comprueba palabras repetidas a lista2
 for i in lista2:
     if i in lista1:
         repetidas.append(i)
