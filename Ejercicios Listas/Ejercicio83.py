@@ -19,7 +19,7 @@ puntuacion = 0
 mediaPartidas = 0
 
 #code de todas las partidas
-for i in partidasNum: #repeticion partidas
+for i in range(partidasNum): #repeticion partidas
     adivina = input("Introduce la palabra secreta: ")
     while adivina != partidasNum: #bucle de una partida
         print("SIGUE JUGANDO")
@@ -32,3 +32,15 @@ for i in partidasNum: #repeticion partidas
 
 puntosTotalesSuma = sum(puntosTotalesList)
 mediaPartidas = partidasNum*4
+
+#salida de datos
+if puntosTotalesSuma>=mediaPartidas: #en caso de superar la media
+    print(f"Puntuación: {puntosTotalesList}")
+    print(f"Tu puntuació ha sido de {puntosTotalesSuma}")
+    print(f"La media de las partidas realizadas es {mediaPartidas}")
+    print("Tienes buena suerte")
+else:
+    print(f"Puntuación: {puntosTotalesList}")
+    print(f"Tu puntuació ha sido de {puntosTotalesSuma}")
+    print(f"La media de las partidas realizadas es {mediaPartidas}")
+    print("Dedícate al parchís")
