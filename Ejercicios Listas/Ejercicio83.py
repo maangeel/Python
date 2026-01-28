@@ -9,6 +9,8 @@ print(lista)
 
 palabra = random.choice(lista) #escoge un valor al azar
 
+adivina = input("Introduce la palabra secreta: ")
+
 puntosTotalesList = []
 puntosTotalesSuma = 0
 
@@ -20,8 +22,9 @@ mediaPartidas = 0
 
 #code de todas las partidas
 for i in range(partidasNum): #repeticion partidas
-    adivina = input("Introduce la palabra secreta: ")
-    while adivina != partidasNum: #bucle de una partida
+    intentos = 0
+    puntuacionMax = 8
+    while adivina != palabra: #bucle de una partida
         print("SIGUE JUGANDO")
         intentos+=1 #cuenta intentos
         adivina = input("Introduce la palabra secreta: ")
@@ -29,6 +32,12 @@ for i in range(partidasNum): #repeticion partidas
         print("ACERTASTE")
     puntuacion = puntuacionMax-intentos
     puntosTotalesList.append(puntuacion)
+    
+    #empieza la siguiente partida
+    if not i==partidasNum-1:
+        print(lista)
+        palabra = random.choice(lista)
+        adivina = input("Introduce la palabra secreta: ")
 
 puntosTotalesSuma = sum(puntosTotalesList)
 mediaPartidas = partidasNum*4
