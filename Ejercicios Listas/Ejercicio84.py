@@ -7,12 +7,12 @@ import random
 lista = ["casa","barco","gato","perro","madera","agua","puente","pantalón"]
 randomWord = random.choice(lista) #escoge una palabra al azar
 randomList = list(randomWord) #convierte a lista la palabra
-wordSorted = sorted(randomList) #sortea ls palabra sin modificarla
+random.shuffle(randomList) #desordena la palabra sin modificarla
 
 intentos = 1
 adivina = ""
 
-print(wordSorted)
+print(randomList)
 
 while not adivina==randomWord and intentos<=3:
     adivina = input("Introduce palabra correcta: ")
