@@ -32,24 +32,39 @@ while repetir.upper() == "S":
 
     repetir = input("Deseas introducir otro alumno s/n: ")
 
-print("Inglés:",ingles)
+#cálculo de medias
+mediaIng = sum(ingles)/len(ingles)
+mediaCaste = sum(caste)/len(caste)
+mediaCata = sum(cata)/len(cata)
+
+#cálculo de medianas
+ingles_orden = sorted(ingles)
+caste_orden = sorted(caste)
+cata_orden = sorted(cata)
+
+def calcular_mediana(lista): #función que calcula mediana
+    n = len(lista)
+    mitad = n // 2
+    if n % 2 == 0:  #longitud par
+        return (lista[mitad - 1] + lista[mitad]) / 2
+    else:  #impar
+        return lista[mitad]
+
+medianaIng = calcular_mediana(ingles_orden)
+medianaCaste = calcular_mediana(caste_orden)
+medianaCata = calcular_mediana(cata_orden)
+
+#prints
+print("\nInglés:",ingles)
 print("Castellano:",caste)
 print("Catalán:",cata)
 
-#cálculo de medias
-for i in ingles:
-    sumaIng += i
-    mediaIng = sumaIng/len(ingles)
+print("\nRESUMEN")
 
-for j in caste:
-    sumaCaste += j
-    mediaCaste = sumaCaste/len(caste)
+print("La media en inglés es:", round(mediaIng, 1))
+print("La media en castellano es:", round(mediaCaste, 1))
+print("La media en catalán es:", round(mediaCata, 1))
 
-for x in cata:
-    sumaCata += x
-    mediaCata = sumaCata/len(cata)
-
-#cálculo de medianas
-
-
-print(f"\n La media en inglés es:")
+print("La mediana en inglés es:", medianaIng)
+print("La mediana en castellano es:", medianaCaste)
+print("La mediana en catalán es:", medianaCata)
