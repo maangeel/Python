@@ -11,14 +11,14 @@ dniNumber = 0 #número de DNI
 while repetir.lower() == "s":
 
     #-----REPETICIÓN-----
-    while True:
-        if lista_intentos: #comprueba si ya se ha introducido algún dni
+    if lista_intentos: #comprueba si ya se ha introducido algún dni
+        while True:
             repetir = input("¿Quieres introducir otro DNI? s/n: ")
-        if repetir.lower() == "n":
-            break #rompe el bucle
-        elif not repetir.lower() == "s":
-            print("Opción no posible")
-            continue
+            if repetir.lower() == "n":
+                break #rompe el bucle
+            elif not repetir.lower() == "s":
+                print("Opción no posible")
+                continue
     
     if repetir.lower() == "n":
         continue #vuelve al bucle inicial
@@ -69,7 +69,7 @@ opcionesMenu = 0
 #-----ESCOGER-OPCIÓN-----
 while True:
     try:
-        opcionesMenu = int(input("Introduce la opción: "))
+        opcionesMenu = int(input("\nIntroduce la opción: "))
         if not opcionesMenu>=1 or not opcionesMenu<=6:
             print("ERROR; Introduzca una opción posible")
             continue
@@ -94,21 +94,21 @@ if opcionesMenu == 4: #TOTAL CORRECTOS
     print(len(DNI_Correcto))
 
 if opcionesMenu == 5: #PORCENTAJE ERRORES
-    print("El número de intentos es:",len(lista_intentos))
+    print("\nEl número de intentos es:",len(lista_intentos))
     percCorrectos = len(DNI_Correcto)/len(lista_intentos)*100 #porcentaje correctos
     perIncorrectos = len(DNI_Incorrecto)/len(lista_intentos)*100 #porcentaje incorrectos
     
     #PORCENTAJE ERROR DE LONGITUD
     repeticionesLong = lista_intentos.count(0)
-    percLongitud = repeticionesLong/lista_intentos*100
+    percLongitud = repeticionesLong/len(lista_intentos)*100
 
     #PORCENTAJE ERROR DE DÍGITOS
     repeticionesDigit = lista_intentos.count(1)
-    percDigit = repeticionesDigit/lista_intentos*100
+    percDigit = repeticionesDigit/len(lista_intentos)*100
 
     #PORCENTAJE DNI INEXISTENTES
     repeticionesInex = lista_intentos.count(2)
-    percInex = repeticionesInex/lista_intentos*100
+    percInex = repeticionesInex/len(lista_intentos)*100
 
     #PRINTS
     print("El '%' de DNI correctos es:",percCorrectos)
@@ -118,4 +118,4 @@ if opcionesMenu == 5: #PORCENTAJE ERRORES
     print("El '%' de DNI que no existen es:",percInex)
 
 if opcionesMenu == 6: #PROGRAMA FINALIZADO
-    print("Programa finalizado")
+    print("\nPrograma finalizado")
