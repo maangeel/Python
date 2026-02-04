@@ -11,22 +11,26 @@ dniNumber = 0 #número de DNI
 while repetir.lower() == "s":
 
     #-----REPETICIÓN-----
-    if lista_intentos: #comprueba si ya se ha introducido algún dni
-        repetir = input("¿Quieres introducir otro DNI? s/n: ")
-    if repetir.lower() == "n":
-        continue #vuelve al bucle y comprueba de nuevo la condición
+    while True:
+        if lista_intentos: #comprueba si ya se ha introducido algún dni
+            repetir = input("¿Quieres introducir otro DNI? s/n: ")
+        if repetir.lower() == "n":
+            break #rompe el bucle
+        elif not repetir.lower() == "s":
+            print("Opción no posible")
+            continue
     
+    if repetir.lower() == "n":
+        continue #vuelve al bucle inicial
     #-----INPUTS-----
     #COMPROBADOR-NUMÉRICO
-    while True:
-        try:
-            dniNumber = int(input("Introduce tu DNI: "))
-            break
-        except ValueError:
-            print("El valor no es numérico")
-            lista_intentos.append(1) #DNI no numérico
-            DNI_Incorrecto.append(DNI_Completo) #añade a lista de incorrectos
-            continue #repite el bucle
+    try:
+        dniNumber = int(input("Introduce tu DNI: "))
+    except ValueError:
+        print("El valor no es numérico")
+        lista_intentos.append(1) #DNI no numérico
+        DNI_Incorrecto.append(DNI_Completo) #añade a lista de incorrectos
+        continue #repite el bucle
 
     #-----COMPROBADOR-LONGITUD-----
     if len(str(dniNumber)) != 8:
@@ -38,9 +42,10 @@ while repetir.lower() == "s":
     #-----CÁLCULO-DE-LA-LETRA-----
     dniLetterValue = dniNumber%23
     if dniLetterValue>=0 and dniLetterValue<=22:
-        DNI_Completo = dniNumber+"-"+lista_Letras[dniLetterValue] #completa el DNI con la letra
+        DNI_Completo = str(dniNumber)+"-"+str(lista_Letras[dniLetterValue]) #completa el DNI con la letra
         lista_intentos.append(3) #DNI correcto
         DNI_Correcto.append(DNI_Completo) #añade a lista de correctos
+        print(DNI_Completo)
     else:
         print("El DNI no existe")
         lista_intentos.append(2) #DNI inexistente
@@ -111,3 +116,6 @@ if opcionesMenu == 5: #PORCENTAJE ERRORES
     print("El '%' de DNI con error de longitud es:",percLongitud)
     print("El '%' de DNI con error de dígitos es:",percDigit)
     print("El '%' de DNI que no existen es:",percInex)
+
+if opcionesMenu == 6: #PROGRAMA FINALIZADO
+    print("Programa finalizado")
