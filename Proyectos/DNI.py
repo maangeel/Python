@@ -19,6 +19,8 @@ while repetir.lower() == "s":
             elif not repetir.lower() == "s":
                 print("Opción no posible")
                 continue
+            else:
+                break
     
     if repetir.lower() == "n":
         continue #vuelve al bucle inicial
