@@ -12,21 +12,27 @@ while repetir.lower() == "s":
 
     #-----REPETICIÓN-----
     if lista_intentos: #comprueba si ya se ha introducido algún dni
-        repetir = input("¿Quieres introducir otro DNI? s/n: ")
-    if repetir.lower() == "n":
-        continue #vuelve al bucle y comprueba de nuevo la condición
+        while True:
+            repetir = input("¿Quieres introducir otro DNI? s/n: ")
+            if repetir.lower() == "n":
+                break #rompe el bucle
+            elif not repetir.lower() == "s":
+                print("Opción no posible")
+                continue
+            else:
+                break
     
+    if repetir.lower() == "n":
+        continue #vuelve al bucle inicial
     #-----INPUTS-----
     #COMPROBADOR-NUMÉRICO
-    while True:
-        try:
-            dniNumber = int(input("Introduce tu DNI: "))
-            break
-        except ValueError:
-            print("El valor no es numérico")
-            lista_intentos.append(1) #DNI no numérico
-            DNI_Incorrecto.append(DNI_Completo) #añade a lista de incorrectos
-            continue #repite el bucle
+    try:
+        dniNumber = int(input("Introduce tu DNI: "))
+    except ValueError:
+        print("El valor no es numérico")
+        lista_intentos.append(1) #DNI no numérico
+        DNI_Incorrecto.append(DNI_Completo) #añade a lista de incorrectos
+        continue #repite el bucle
 
     #-----COMPROBADOR-LONGITUD-----
     if len(str(dniNumber)) != 8:
@@ -38,9 +44,10 @@ while repetir.lower() == "s":
     #-----CÁLCULO-DE-LA-LETRA-----
     dniLetterValue = dniNumber%23
     if dniLetterValue>=0 and dniLetterValue<=22:
-        DNI_Completo = dniNumber+"-"+lista_Letras[dniLetterValue] #completa el DNI con la letra
+        DNI_Completo = str(dniNumber)+"-"+str(lista_Letras[dniLetterValue]) #completa el DNI con la letra
         lista_intentos.append(3) #DNI correcto
         DNI_Correcto.append(DNI_Completo) #añade a lista de correctos
+        print(DNI_Completo)
     else:
         print("El DNI no existe")
         lista_intentos.append(2) #DNI inexistente
@@ -64,7 +71,7 @@ opcionesMenu = 0
 #-----ESCOGER-OPCIÓN-----
 while True:
     try:
-        opcionesMenu = int(input("Introduce la opción: "))
+        opcionesMenu = int(input("\nIntroduce la opción: "))
         if not opcionesMenu>=1 or not opcionesMenu<=6:
             print("ERROR; Introduzca una opción posible")
             continue
@@ -89,21 +96,21 @@ if opcionesMenu == 4: #TOTAL CORRECTOS
     print(len(DNI_Correcto))
 
 if opcionesMenu == 5: #PORCENTAJE ERRORES
-    print("El número de intentos es:",len(lista_intentos))
+    print("\nEl número de intentos es:",len(lista_intentos))
     percCorrectos = len(DNI_Correcto)/len(lista_intentos)*100 #porcentaje correctos
     perIncorrectos = len(DNI_Incorrecto)/len(lista_intentos)*100 #porcentaje incorrectos
     
     #PORCENTAJE ERROR DE LONGITUD
     repeticionesLong = lista_intentos.count(0)
-    percLongitud = repeticionesLong/lista_intentos*100
+    percLongitud = repeticionesLong/len(lista_intentos)*100
 
     #PORCENTAJE ERROR DE DÍGITOS
     repeticionesDigit = lista_intentos.count(1)
-    percDigit = repeticionesDigit/lista_intentos*100
+    percDigit = repeticionesDigit/len(lista_intentos)*100
 
     #PORCENTAJE DNI INEXISTENTES
     repeticionesInex = lista_intentos.count(2)
-    percInex = repeticionesInex/lista_intentos*100
+    percInex = repeticionesInex/len(lista_intentos)*100
 
     #PRINTS
     print("El '%' de DNI correctos es:",percCorrectos)
@@ -111,3 +118,6 @@ if opcionesMenu == 5: #PORCENTAJE ERRORES
     print("El '%' de DNI con error de longitud es:",percLongitud)
     print("El '%' de DNI con error de dígitos es:",percDigit)
     print("El '%' de DNI que no existen es:",percInex)
+
+if opcionesMenu == 6: #PROGRAMA FINALIZADO
+    print("\nPrograma finalizado")
