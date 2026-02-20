@@ -72,7 +72,7 @@ while continuar == "s":
 
     #PARTIDA
     palabra_secreta, lista_partida, intentos, lista_palabrasecreta = randomizar_palabra(lista_palabrasecreta)
-    lista_partida, lista_ahorcado = agregar_letra(input("Ingresa una letra: ").lower())
+    #lista_partida, lista_ahorcado = agregar_letra(input("Ingresa una letra: ").lower())
     tiempo_total = partida(lista_partida, lista_ahorcado)
     print(f"Tiempo total de la partida: {tiempo_total:.2f} segundos")
     continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
