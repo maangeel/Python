@@ -44,7 +44,7 @@ def agregar_letra(letra):
 
 def partida(lista_partida, lista_ahorcado): #función para jugar la partida
     tiempo_inicio = time.time() #comienza a contar tiempo
-    while lista_ahorcado != letras_ahorcado:
+    while lista_ahorcado != letras_ahorcado and "_" in lista_partida:
         lista_partida, lista_ahorcado = agregar_letra(input("Ingresa una letra: ").lower())
     if "_" not in lista_partida:
         tiempo_fin = time.time() #finaliza el contador
@@ -52,7 +52,8 @@ def partida(lista_partida, lista_ahorcado): #función para jugar la partida
         print("¡Felicidades! Has ganado. La palabra era:", palabra_secreta)
     else:
         print("¡Has perdido! La palabra era:", palabra_secreta)
-    print(",".join(lista_partida))
+        tiempo_fin = time.time() #finaliza el contador
+        tiempo_total = tiempo_fin - tiempo_inicio
     return tiempo_total
 
 
@@ -72,7 +73,6 @@ while continuar == "s":
 
     #PARTIDA
     palabra_secreta, lista_partida, intentos, lista_palabrasecreta = randomizar_palabra(lista_palabrasecreta)
-    #lista_partida, lista_ahorcado = agregar_letra(input("Ingresa una letra: ").lower())
     tiempo_total = partida(lista_partida, lista_ahorcado)
     print(f"Tiempo total de la partida: {tiempo_total:.2f} segundos")
     continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
