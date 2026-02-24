@@ -3,6 +3,8 @@
 import random
 import time
 
+textPartida = open("DatosPartida.txt", "a+")
+
 lista_palabrasecreta = ["python", "programacion", "ahorcado", "juego", "desarrollo", "computadora", "teclado", "raton", "monitor", "tecnologia"]
 palabra_secreta = ""
 lista_partida = []
@@ -25,11 +27,12 @@ def randomizar_palabra(listaPalabras):
 
 #añadir letras a la partida
 def agregar_letra(letra):
-    if len(letra) != 1 or not letra.isalpha(): #en caso de ingresar un valor no válido
-        print("Por favor, ingresa una letra válida.")
-        return lista_partida, lista_ahorcado
     global lista_aciertos
     global lista_errores
+    if len(letra) != 1 or not letra.isalpha() or letra in lista_aciertos or letra in lista_errores: #en caso de ingresar un valor no válido
+        print("Por favor, ingresa una letra válida.")
+        return lista_partida, lista_ahorcado
+
     if letra in palabra_secreta:
         for i in range(len(palabra_secreta)): #recorre la palabra para comprobar la letra
             if palabra_secreta[i] == letra:
@@ -81,6 +84,10 @@ while continuar == "s":
     tiempo_total_min, tiempo_total_sec = partida(lista_partida, lista_ahorcado)
     print(f"Tiempo total de la partida: {tiempo_total_min} minutos y {tiempo_total_sec} segundos")
     continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
+    textPartida.write(f"Fecha de partida: {time.strftime('%Y-%m-%d')}\n")
+    textPartida.write(f"Hora de partida: {time.strftime('%H:%M')}\n")
+    textPartida.write(f"Aciertos: {len(lista_aciertos)}\n")
+    textPartida.write(f"Errores: {len(lista_errores)}\n")
 
 else:
     print("¡Gracias por jugar! ¡Hasta la próxima!")
