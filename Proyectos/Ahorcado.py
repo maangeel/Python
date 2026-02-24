@@ -25,13 +25,16 @@ def randomizar_palabra(listaPalabras):
 
 #añadir letras a la partida
 def agregar_letra(letra):
+    if len(letra) != 1 or not letra.isalpha(): #en caso de ingresar un valor no válido
+        print("Por favor, ingresa una letra válida.")
+        return lista_partida, lista_ahorcado
     global lista_aciertos
     global lista_errores
     if letra in palabra_secreta:
         for i in range(len(palabra_secreta)): #recorre la palabra para comprobar la letra
             if palabra_secreta[i] == letra:
                 lista_partida[i] = letra #sustituye el guion bajo por la letra correcta
-                lista_aciertos.append(letra) #añade la letra a la lista de aciertos
+        lista_aciertos.append(letra) #añade la letra a la lista de aciertos
     else:
         global intentos
         lista_errores.append(letra)
@@ -48,13 +51,15 @@ def partida(lista_partida, lista_ahorcado): #función para jugar la partida
         lista_partida, lista_ahorcado = agregar_letra(input("Ingresa una letra: ").lower())
     if "_" not in lista_partida:
         tiempo_fin = time.time() #finaliza el contador
-        tiempo_total = tiempo_fin - tiempo_inicio
+        tiempo_total_min = round((tiempo_fin - tiempo_inicio)//60)
+        tiempo_total_sec = round((tiempo_fin - tiempo_inicio)%60, 2)
         print("¡Felicidades! Has ganado. La palabra era:", palabra_secreta)
     else:
         print("¡Has perdido! La palabra era:", palabra_secreta)
         tiempo_fin = time.time() #finaliza el contador
-        tiempo_total = tiempo_fin - tiempo_inicio
-    return tiempo_total
+        tiempo_total_min = round((tiempo_fin - tiempo_inicio)//60)
+        tiempo_total_sec = round((tiempo_fin - tiempo_inicio)%60, 2)
+    return tiempo_total_min, tiempo_total_sec
 
 
 continuar = "s"
@@ -73,8 +78,8 @@ while continuar == "s":
 
     #PARTIDA
     palabra_secreta, lista_partida, intentos, lista_palabrasecreta = randomizar_palabra(lista_palabrasecreta)
-    tiempo_total = partida(lista_partida, lista_ahorcado)
-    print(f"Tiempo total de la partida: {tiempo_total:.2f} segundos")
+    tiempo_total_min, tiempo_total_sec = partida(lista_partida, lista_ahorcado)
+    print(f"Tiempo total de la partida: {tiempo_total_min} minutos y {tiempo_total_sec} segundos")
     continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
 
 else:
