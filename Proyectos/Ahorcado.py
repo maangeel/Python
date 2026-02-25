@@ -6,12 +6,14 @@ import time
 lista_palabrasecreta = []
 
 #carga las palabras del diccionario
-with open("PalabrasDiccionario.txt", "r") as archivo:
+with open("PalabrasDiccionario.txt", "r", encoding="utf-8") as archivo:
     for linea in archivo:
-        linea = linea.replace(",", "") #elimina las comas
-        palabra = linea.strip().lower() #separa cada línea y la vuelve minúscula
-        if palabra and palabra not in lista_palabrasecreta:
-            lista_palabrasecreta.append(palabra)
+        #cada línea separada por comas
+        partes = linea.split(",")
+        for parte in partes:
+            palabra = parte.strip().lower()  #elimina espacios y convierte a minúscula
+            if palabra and palabra not in lista_palabrasecreta:
+                lista_palabrasecreta.append(palabra)
 
 textPartida = open("DatosPartida.txt", "a+")
 palabra_secreta = ""
