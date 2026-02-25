@@ -41,6 +41,11 @@ def randomizar_palabra(listaPalabras):
 def agregar_letra(letra):
     global lista_aciertos
     global lista_errores
+    if len(letra)>1:
+        if letra == palabra_secreta:
+            for i in range(len(palabra_secreta)):
+                lista_partida[i] = letra[i] #sustituye los guiones bajos por la palabra completa
+            lista_aciertos.append(letra.split())
     if len(letra) != 1 or not letra.isalpha() or letra in lista_aciertos or letra in lista_errores: #en caso de ingresar un valor no válido
         print("\nPor favor, ingresa una letra válida.")
         return lista_partida, lista_ahorcado

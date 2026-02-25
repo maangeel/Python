@@ -1,0 +1,10 @@
+
+Fecha de partida: 2026-02-25
+Hora de partida: 09:46
+Aciertos: 5
+Errores: 4
+
+Fecha de partida: 2026-02-25
+Hora de partida: 09:46
+Aciertos: 3
+Errores: 3
