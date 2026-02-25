@@ -45,8 +45,9 @@ def agregar_letra(letra):
         if letra == palabra_secreta:
             for i in range(len(palabra_secreta)):
                 lista_partida[i] = letra[i] #sustituye los guiones bajos por la palabra completa
-            lista_aciertos.append(letra.split())
-    if len(letra) != 1 or not letra.isalpha() or letra in lista_aciertos or letra in lista_errores: #en caso de ingresar un valor no válido
+            lista_aciertos.append(letra)
+            return lista_partida, lista_ahorcado
+    if not letra.isalpha() or letra in lista_aciertos or letra in lista_errores: #en caso de ingresar un valor no válido
         print("\nPor favor, ingresa una letra válida.")
         return lista_partida, lista_ahorcado
 
@@ -68,7 +69,7 @@ def agregar_letra(letra):
 def partida(lista_partida, lista_ahorcado): #función para jugar la partida
     tiempo_inicio = time.time() #comienza a contar tiempo
     while lista_ahorcado != letras_ahorcado and "_" in lista_partida:
-        lista_partida, lista_ahorcado = agregar_letra(input("\nIngresa una letra: ").lower())
+        lista_partida, lista_ahorcado = agregar_letra(input("\nIngresa una letra o adivina la palabra: ").lower())
     if "_" not in lista_partida:
         tiempo_fin = time.time() #finaliza el contador
         tiempo_total_min = round((tiempo_fin - tiempo_inicio)//60)
