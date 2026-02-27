@@ -3,6 +3,16 @@
 import random
 import time
 
+#PRINTS
+print("\n¡Bienvenido al juego del Ahorcado!")
+print("Tienes que adivinar la palabra secreta letra por letra.")
+print("Si adivinas la letra, se mostrará en su posición correcta.")
+print("Si no adivinas la letra, se añadirá una letra a la palabra AHORCADO.")
+print("Tienes 8 intentos para adivinar la palabra secreta.\n")
+
+
+
+
 lista_palabrasecreta = []
 
 #carga las palabras del diccionario
@@ -89,6 +99,9 @@ while continuar == "s":
 
     #AGREGAR PALABRAS
     addWords = input("¿Quieres agregar una palabra al juego? (s/n): ").lower()
+    while addWords not in ["s", "n"]: #en caso de ingresar una opción no válida, repite la pregunta
+        print("Opción no válida")
+        addWords = input("¿Quieres agregar una palabra al juego? (s/n): ").lower()
     if addWords == "s":
         nueva_palabra = input("Ingresa la nueva palabra: ").lower()
         if nueva_palabra not in lista_palabrasecreta:
@@ -96,12 +109,20 @@ while continuar == "s":
             print("Palabra agregada correctamente.")
         else:
             print("La palabra ya existe en la lista.")
+    elif addWords == "n":
+        print("Continuando con el juego...")
 
     #PARTIDA
     palabra_secreta, lista_partida, intentos, lista_palabrasecreta = randomizar_palabra(lista_palabrasecreta)
     tiempo_total_min, tiempo_total_sec = partida(lista_partida, lista_ahorcado)
     print(f"Tiempo total de la partida: {tiempo_total_min} minutos y {tiempo_total_sec} segundos")
+    
+    #continuar partida
     continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
+    while continuar not in ["s", "n"]: #en caso de ingresar una opción no válida, repite la pregunta
+        print("Opción no válida")
+        continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
+
     textPartida.write(f"\nFecha de partida: {time.strftime('%Y-%m-%d')}\n")
     textPartida.write(f"Hora de partida: {time.strftime('%H:%M')}\n")
     textPartida.write(f"Aciertos: {len(lista_aciertos)}\n")
@@ -118,7 +139,7 @@ while continuar == "s":
     lista_errores = [] 
     lista_ahorcado = []
 
-else:
+else: #al acabar las partidas, muestra los resultados totales
     print("¡Gracias por jugar! ¡Hasta la próxima!")
     print(f"Tus aciertos fueron: {', '.join(lista_aciertos_total)}")
     print(f"Tus errores fueron: {', '.join(lista_errores_total)}")
