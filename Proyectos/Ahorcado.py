@@ -11,8 +11,6 @@ print("Si no adivinas la letra, se añadirá una letra a la palabra AHORCADO.")
 print("Tienes 8 intentos para adivinar la palabra secreta.\n")
 
 
-
-
 lista_palabrasecreta = []
 
 #carga las palabras del diccionario
