@@ -1,0 +1,143 @@
+#JUEGO DEL AHORCADO
+
+import random
+import time
+
+#PRINTS
+print("\n¡Bienvenido al juego del Ahorcado!")
+print("Tienes que adivinar la palabra secreta letra por letra.")
+print("Si adivinas la letra, se mostrará en su posición correcta.")
+print("Si no adivinas la letra, se añadirá una letra a la palabra AHORCADO.")
+print("Tienes 8 intentos para adivinar la palabra secreta.\n")
+
+
+lista_palabrasecreta = []
+
+#carga las palabras del diccionario
+with open("PalabrasDiccionario.txt", "r", encoding="utf-8") as archivo:
+    for linea in archivo:
+        #cada línea separada por comas
+        partes = linea.split(",")
+        for parte in partes:
+            palabra = parte.strip().lower()  #elimina espacios y convierte a minúscula
+            if palabra and palabra not in lista_palabrasecreta:
+                lista_palabrasecreta.append(palabra)
+
+textPartida = open("DatosPartida.txt", "a+")
+palabra_secreta = ""
+lista_partida = []
+lista_ahorcado = []
+letras_ahorcado = ["A", "H", "O", "R", "C", "A", "D", "O"]
+intentos = 0
+lista_aciertos = [] #por partida, se reinicia la lista de aciertos y errores
+lista_errores = []
+
+lista_aciertos_total = [] #lista para guardar los aciertos totales de todas las partidas
+lista_errores_total = [] #lista para guardar los errores totales de todas las partidas
+
+#Función para randomizar la palabra secreta
+def randomizar_palabra(listaPalabras):
+    palabra_secreta = random.choice(listaPalabras)
+    lista_partida = ["_"] * len(palabra_secreta)
+    print(",".join(lista_partida))
+    intentos = 0
+    lista_palabrasecreta.remove(palabra_secreta)
+    return palabra_secreta, lista_partida, intentos, lista_palabrasecreta
+
+
+#añadir letras a la partida
+def agregar_letra(letra):
+    global lista_aciertos
+    global lista_errores
+    if len(letra)>1:
+        if letra == palabra_secreta:
+            for i in range(len(palabra_secreta)):
+                lista_partida[i] = letra[i] #sustituye los guiones bajos por la palabra completa
+            lista_aciertos.append(letra)
+            return lista_partida, lista_ahorcado
+    if not letra.isalpha() or letra in lista_aciertos or letra in lista_errores: #en caso de ingresar un valor no válido
+        print("\nPor favor, ingresa una letra válida.")
+        return lista_partida, lista_ahorcado
+
+    if letra in palabra_secreta:
+        for i in range(len(palabra_secreta)): #recorre la palabra para comprobar la letra
+            if palabra_secreta[i] == letra:
+                lista_partida[i] = letra #sustituye el guion bajo por la letra correcta
+        lista_aciertos.append(letra) #añade la letra a la lista de aciertos
+    else:
+        global intentos
+        lista_errores.append(letra)
+        lista_ahorcado.append(letras_ahorcado[intentos]) #añade una letra a AHORCADO
+        intentos += 1
+    print(",".join(lista_partida))
+    print(" ".join(lista_ahorcado)) #imprime la palabra ahorcado
+    return lista_partida, lista_ahorcado
+
+
+def partida(lista_partida, lista_ahorcado): #función para jugar la partida
+    tiempo_inicio = time.time() #comienza a contar tiempo
+    while lista_ahorcado != letras_ahorcado and "_" in lista_partida:
+        lista_partida, lista_ahorcado = agregar_letra(input("\nIngresa una letra o adivina la palabra: ").lower())
+    if "_" not in lista_partida:
+        tiempo_fin = time.time() #finaliza el contador
+        tiempo_total_min = round((tiempo_fin - tiempo_inicio)//60)
+        tiempo_total_sec = round((tiempo_fin - tiempo_inicio)%60, 2)
+        print("¡Felicidades! Has ganado. La palabra era:", palabra_secreta)
+    else:
+        print("¡Has perdido! La palabra era:", palabra_secreta)
+        tiempo_fin = time.time() #finaliza el contador
+        tiempo_total_min = round((tiempo_fin - tiempo_inicio)//60)
+        tiempo_total_sec = round((tiempo_fin - tiempo_inicio)%60, 2)
+    return tiempo_total_min, tiempo_total_sec
+
+
+continuar = "s"
+
+while continuar == "s":
+
+    #AGREGAR PALABRAS
+    addWords = input("¿Quieres agregar una palabra al juego? (s/n): ").lower()
+    while addWords not in ["s", "n"]: #en caso de ingresar una opción no válida, repite la pregunta
+        print("Opción no válida")
+        addWords = input("¿Quieres agregar una palabra al juego? (s/n): ").lower()
+    if addWords == "s":
+        nueva_palabra = input("Ingresa la nueva palabra: ").lower()
+        if nueva_palabra not in lista_palabrasecreta:
+            lista_palabrasecreta.append(nueva_palabra)
+            print("Palabra agregada correctamente.")
+        else:
+            print("La palabra ya existe en la lista.")
+    elif addWords == "n":
+        print("Continuando con el juego...")
+
+    #PARTIDA
+    palabra_secreta, lista_partida, intentos, lista_palabrasecreta = randomizar_palabra(lista_palabrasecreta)
+    tiempo_total_min, tiempo_total_sec = partida(lista_partida, lista_ahorcado)
+    print(f"Tiempo total de la partida: {tiempo_total_min} minutos y {tiempo_total_sec} segundos")
+    
+    #continuar partida
+    continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
+    while continuar not in ["s", "n"]: #en caso de ingresar una opción no válida, repite la pregunta
+        print("Opción no válida")
+        continuar = input("¿Quieres jugar otra partida? (s/n): ").lower()
+
+    textPartida.write(f"\nFecha de partida: {time.strftime('%Y-%m-%d')}\n")
+    textPartida.write(f"Hora de partida: {time.strftime('%H:%M')}\n")
+    textPartida.write(f"Aciertos: {len(lista_aciertos)}\n")
+    textPartida.write(f"Errores: {len(lista_errores)}\n")
+    textPartida.close()
+    textPartida = open("DatosPartida.txt", "a+") #reabre el archivo
+
+    #extend a lista total
+    lista_aciertos_total.extend(lista_aciertos)
+    lista_errores_total.extend(lista_errores)
+    
+    #reinicio de variables
+    lista_aciertos = []
+    lista_errores = [] 
+    lista_ahorcado = []
+
+else: #al acabar las partidas, muestra los resultados totales
+    print("¡Gracias por jugar! ¡Hasta la próxima!")
+    print(f"Tus aciertos fueron: {', '.join(lista_aciertos_total)}")
+    print(f"Tus errores fueron: {', '.join(lista_errores_total)}")
