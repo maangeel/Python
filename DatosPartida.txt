@@ -8,3 +8,8 @@ Fecha de partida: 2026-03-04
 Hora de partida: 09:43
 Aciertos: 0
 Errores: 8
+
+Fecha de partida: 2026-03-06
+Hora de partida: 23:18
+Aciertos: 6
+Errores: 7
