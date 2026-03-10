@@ -31,9 +31,9 @@ print(f"Productos sin stock: {', '.join(productoNoStock) if productoNoStock else
 
 lista_productos = [x for x in lista_productos if x not in productoNoStock] #cambia la lista para guardar los productos on stock
 lista_precios = [lista_precios[i] for i in range(len(lista_stock)) if lista_stock[i] > 0] #cambia la lista para guardar los precios de los productos on stock
+lista_stock = [lista_stock[i] for i in range(len(lista_stock)) if lista_stock[i] > 0] #cambia la lista para guardar los stock de los productos on stock
 
 #resumen
-
 print("\nResumen de productos con stock:")
 for z in range(len(lista_productos)):
     print(f"Producto: {lista_productos[z]}, Precio: {lista_precios[z]}, Stock: {lista_stock[z]}")
