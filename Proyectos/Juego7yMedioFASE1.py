@@ -27,28 +27,50 @@ def obtenerCarta():
         
     else:
         return 0,0, listaCartas, valoresCartas
+    
+def partida(respuesta):
 
-print("Bienvenido al juego de 7 y Medio")
+    global totalValores
+    global listaCartas
+    global valoresCartas
 
-#obtener la primera carta
-carta, valor, listaCartas, valoresCartas = obtenerCarta()
-print(f"Has obtenido la carta {carta} con valor {valor}")
-totalValores += valor
-print(f"Tu total actual es: {totalValores}")
+    totalValores = 0
+    listaCartas = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,10,10,10,10,11,11,11,11,12,12,12,12]
+    valoresCartas = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
 
-#resto de cartas
-while carta != 0 and valor != 0 and totalValores < 7.5:
-    carta, valor, listaCartas, valoresCartas = obtenerCarta() #se actualizan los valores y listas
-    print(f"Has obtenido la carta {carta} con valor {valor}")
-    totalValores += valor
-    print(f"Tu total actual es: {totalValores}")
+    if respuesta != "s":
+        print("¡Hasta luego!")
+        return
+    if respuesta == "s":
+        print("Bienvenido al juego de 7 y Medio")
 
-else:
-    if totalValores > 7.5:
-        print("Has perdido la partida")
-    elif totalValores == 7.5:
-        print("Enhorabuena, has ganado la partida")
-    elif totalValores >=6 and totalValores <= 7:
-        print(f"Has sido un poco conservador")
-    else:
-        print("Quizás tendrías que haber arriesgado un poco, ¿No?")
+        #obtener la primera carta
+        carta, valor, listaCartas, valoresCartas = obtenerCarta()
+        print(f"Has obtenido la carta {carta} con valor {valor}")
+        totalValores += valor
+        print(f"Tu total actual es: {totalValores}")
+
+        #resto de cartas
+        while carta != 0 and valor != 0 and totalValores < 7.5:
+            carta, valor, listaCartas, valoresCartas = obtenerCarta() #se actualizan los valores y listas
+            print(f"Has obtenido la carta {carta} con valor {valor}")
+            totalValores += valor
+            print(f"Tu total actual es: {totalValores}")
+
+        else:
+            if totalValores > 7.5:
+                print("Has perdido la partida")
+            elif totalValores == 7.5:
+                print("Enhorabuena, has ganado la partida")
+            elif totalValores >=6 and totalValores <= 7:
+                print(f"Has sido un poco conservador")
+            else:
+                print("Quizás tendrías que haber arriesgado un poco, ¿No?")
+
+
+start = input("¿Quieres jugar al 7 y Medio? (s/n): ")
+partida(start)
+
+while start == "s":
+    start = input("\n¿Quieres jugar otra partida? (s/n): ")
+    partida(start)
