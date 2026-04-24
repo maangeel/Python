@@ -12,6 +12,8 @@ valoresCartas = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,0.5,0.5
 
 totalValores = 0
 
+puntuacion = 100
+
 #función para obtener una carta y su valor
 def obtenerCarta():
     respuesta = input("\n¿Quieres una carta? (s/n): ")
@@ -36,6 +38,8 @@ def partida(respuesta):
     global totalValores
     global listaCartas
     global valoresCartas
+
+    global puntuacion
 
     totalValores = 0
     listaCartas = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,10,10,10,10,11,11,11,11,12,12,12,12]
@@ -63,12 +67,20 @@ def partida(respuesta):
         else:
             if totalValores > 7.5:
                 print("Has perdido la partida")
+                puntuacion -= 10
+                print("\nTu puntuación total es: ",puntuacion)
             elif totalValores == 7.5:
                 print("Enhorabuena, has ganado la partida")
+                puntuacion += 10
+                print("\nTu puntuación total es: ",puntuacion)
             elif totalValores >=6 and totalValores <= 7:
                 print(f"Has sido un poco conservador")
+                puntuacion += 5
+                print("\nTu puntuación total es: ",puntuacion)
             else:
                 print("Quizás tendrías que haber arriesgado un poco, ¿No?")
+                puntuacion -= 5
+                print("\nTu puntuación total es: ",puntuacion)
 
 
 start = input("¿Quieres jugar al 7 y Medio? (s/n): ")
@@ -76,4 +88,9 @@ partida(start)
 
 while start == "s":
     start = input("\n¿Quieres jugar otra partida? (s/n): ")
-    partida(start)
+    if puntuacion > 0:
+        partida(start)
+    else:
+        print("\nNo puedes seguir jugando")
+        print("Depósito vacío")
+        break
